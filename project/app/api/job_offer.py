@@ -2,6 +2,7 @@ from typing import List
 
 from fastapi import APIRouter, HTTPException, status
 
+from app import constant
 from app.services.job_offer import add_job_offer, get_job_offer, get_job_offers, remove_job_offer, edit_job_offer
 from app.schema.job_offer import UserPayloadSchema, UserResponseSchema
 
@@ -17,7 +18,7 @@ async def create_job_offer(payload: UserPayloadSchema) -> UserResponseSchema:
 async def read_job_offer(id: str) -> UserResponseSchema:
     job_offer = await get_job_offer(id)
     if not job_offer:
-        raise HTTPException(status_code=404, detail="JobOffert not found")
+        raise HTTPException(status_code=404, detail=constant.JOB_OFFER_NOT_FOUND)
 
     return job_offer
 
@@ -31,7 +32,7 @@ async def read_all_job_offers() -> List[UserResponseSchema]:
 async def delete_job_offer(id: str) -> UserResponseSchema:
     job_offer = await get_job_offers(id)
     if not job_offer:
-        raise HTTPException(status_code=404, detail="JobOffert not found")
+        raise HTTPException(status_code=404, detail=constant.JOB_OFFER_NOT_FOUND)
 
     await remove_job_offer(id)
 
@@ -42,6 +43,6 @@ async def delete_job_offer(id: str) -> UserResponseSchema:
 async def update_job_offer(id: str, payload: UserPayloadSchema) -> UserResponseSchema:
     job_offer = await edit_job_offer(id, payload)
     if not job_offer:
-        raise HTTPException(status_code=404, detail="JobOffert not found")
+        raise HTTPException(status_code=404, detail=constant.JOB_OFFER_NOT_FOUND)
 
     return job_offer

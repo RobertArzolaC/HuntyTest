@@ -2,6 +2,7 @@ from typing import List
 
 from fastapi import APIRouter, HTTPException, status
 
+from app import constant
 from app.services.company import add_company, get_company, get_companies, remove_company, edit_company
 from app.schema.company import UserPayloadSchema, CompanyResponseSchema
 
@@ -17,7 +18,7 @@ async def create_company(payload: UserPayloadSchema) -> CompanyResponseSchema:
 async def read_company(id: str) -> CompanyResponseSchema:
     company = await get_company(id)
     if not company:
-        raise HTTPException(status_code=404, detail="Company not found")
+        raise HTTPException(status_code=404, detail=constant.COMPANY_NOT_FOUND)
 
     return company
 
@@ -31,7 +32,7 @@ async def read_all_companies() -> List[CompanyResponseSchema]:
 async def delete_company(id: str) -> CompanyResponseSchema:
     company = await get_company(id)
     if not company:
-        raise HTTPException(status_code=404, detail="Company not found")
+        raise HTTPException(status_code=404, detail=constant.COMPANY_NOT_FOUND)
 
     await remove_company(id)
 
@@ -42,6 +43,6 @@ async def delete_company(id: str) -> CompanyResponseSchema:
 async def update_company(id: str, payload: UserPayloadSchema) -> CompanyResponseSchema:
     company = await edit_company(id, payload)
     if not company:
-        raise HTTPException(status_code=404, detail="Company not found")
+        raise HTTPException(status_code=404, detail=constant.COMPANY_NOT_FOUND)
 
     return company

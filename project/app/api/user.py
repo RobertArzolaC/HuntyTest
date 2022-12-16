@@ -2,6 +2,7 @@ from typing import List
 
 from fastapi import APIRouter, HTTPException, status
 
+from app import constant
 from app.services.user import add_user, edit_user, get_user, get_users, remove_user
 from app.schema.user import UserPayloadSchema, UserResponseSchema
 
@@ -17,7 +18,7 @@ async def create_user(payload: UserPayloadSchema) -> UserResponseSchema:
 async def read_user(id: str) -> UserResponseSchema:
     job_offer = await get_user(id)
     if not job_offer:
-        raise HTTPException(status_code=404, detail="User not found")
+        raise HTTPException(status_code=404, detail=constant.USER_NOT_FOUND)
 
     return job_offer
 
@@ -31,7 +32,7 @@ async def read_all_users() -> List[UserResponseSchema]:
 async def delete_user(id: str) -> UserResponseSchema:
     job_offer = await get_users(id)
     if not job_offer:
-        raise HTTPException(status_code=404, detail="User not found")
+        raise HTTPException(status_code=404, detail=constant.USER_NOT_FOUND)
 
     await remove_user(id)
 
@@ -42,6 +43,6 @@ async def delete_user(id: str) -> UserResponseSchema:
 async def update_user(id: str, payload: UserPayloadSchema) -> UserResponseSchema:
     job_offer = await edit_user(id, payload)
     if not job_offer:
-        raise HTTPException(status_code=404, detail="User not found")
+        raise HTTPException(status_code=404, detail=constant.USER_NOT_FOUND)
 
     return job_offer
