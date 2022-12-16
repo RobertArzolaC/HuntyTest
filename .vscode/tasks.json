@@ -1,0 +1,50 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "docker-build",
+            "label": "docker-build",
+            "dockerBuild": {
+                "context": "${workspaceFolder}/project",
+                "dockerfile": "${workspaceFolder}/project/Dockerfile",
+                "tag": "huntytest:latest",
+            }
+        },
+        {
+            "type": "docker-run",
+            "label": "docker-run: debug",
+            "dependsOn": ["docker-build"],
+            "dockerRun": {
+                "env": {
+                    "TESTING": "0",
+                    "ENVIRONMENT": "dev",
+                    "DATABASE_URL": "postgres://postgres:postgres@web-db:5432/web_dev",
+                    "DATABASE_TEST_URL": "postgres://postgres:postgres@web-db:5432/web_test",
+                },
+                "volumes": [
+                    {
+                      "containerPath": "/usr/src/app",
+                      "localPath": "${workspaceFolder}/project"
+                    }
+                  ],
+                "ports": [
+                    {
+                      "containerPort": 5000,
+                      "hostPort": 5000
+                    }
+                ],
+            },
+            "python": {
+                "module": "uvicorn",
+                "args": [
+                    "app.main:app",
+                    "--reload",
+                    "--workers 1",
+                    "--host 0.0.0.0",
+                    "--port 8000",
+                ],
+            }
+        }
+    ]
+}
+  
