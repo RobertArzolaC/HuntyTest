@@ -37,7 +37,7 @@ async def read_all_job_offers() -> List[UserResponseSchema]:
 
 @router.delete("/{id}/", response_model=UserResponseSchema)
 async def delete_job_offer(id: str) -> UserResponseSchema:
-    job_offer = await get_job_offers(id)
+    job_offer = await get_job_offer(id)
     if not job_offer:
         raise HTTPException(status_code=404, detail=constant.JOB_OFFER_NOT_FOUND)
 
