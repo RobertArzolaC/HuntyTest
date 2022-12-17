@@ -31,7 +31,7 @@ async def read_all_users() -> List[UserResponseSchema]:
 
 @router.delete("/{id}/", response_model=UserResponseSchema)
 async def delete_user(id: str) -> UserResponseSchema:
-    job_offer = await get_users(id)
+    job_offer = await get_user(id)
     if not job_offer:
         raise HTTPException(status_code=404, detail=constant.USER_NOT_FOUND)
 
