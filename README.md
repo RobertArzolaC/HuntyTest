@@ -75,7 +75,7 @@ docker-compose exec web python -m pytest --cov="."
 
 
 ## Diagrama entidad relación
-![Estructura de las tablas](https://raw.githubusercontent.com/RobertArzolaC/HuntyTest/master/assets/DEF.png)
+![Estructura de las tablas](https://github.com/RobertArzolaC/HuntyTest/blob/dev/assets/DEF.png)
 
 
 ## Recursos
