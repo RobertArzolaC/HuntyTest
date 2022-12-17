@@ -15,7 +15,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"user_id\": \"36677fc9-3702-4944-aca0-7228054cf6d6\",\n    \"skill_id\": \"b0417edc-785e-4595-8159-ca978953a864\",\n    \"years_of_experience\": 3\n}",
+							"raw": "{\n    \"user_id\": \"5b0cf273-af9f-47cb-800b-1c19a4cf66ca\",\n    \"skill_id\": \"56886069-ceea-4286-971a-85c0e3d99406\",\n    \"years_of_experience\": 2\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -401,7 +401,18 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:8004/job_offers/by_user/5b0cf273-af9f-47cb-800b-1c19a4cf66ca/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8004",
+							"path": [
+								"job_offers",
+								"by_user",
+								"5b0cf273-af9f-47cb-800b-1c19a4cf66ca",
+								""
+							]
 						}
 					},
 					"response": []
@@ -541,7 +552,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"first_name\": \"Elon\",\n  \"last_name\": \"Musk\",\n  \"email\": \"elon@gmail.com\",\n  \"years_of_experience\": 6\n}",
+							"raw": "{\n  \"first_name\": \"Ricardo\",\n  \"last_name\": \"Beltran\",\n  \"email\": \"ricardo@gmail.com\",\n  \"years_of_experience\": 2\n}",
 							"options": {
 								"raw": {
 									"language": "json"
