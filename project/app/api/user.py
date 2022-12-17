@@ -1,14 +1,16 @@
 from typing import List
 
-from fastapi import APIRouter, HTTPException, status
-
-from app.services.user import add_user, edit_user, get_user, get_users, remove_user
+from app import constant
 from app.schema.user import UserPayloadSchema, UserResponseSchema
+from app.services.user import add_user, edit_user, get_user, get_users, remove_user
+from fastapi import APIRouter, HTTPException, status
 
 router = APIRouter()
 
 
-@router.post("/", response_model=UserResponseSchema, status_code=status.HTTP_201_CREATED)
+@router.post(
+    "/", response_model=UserResponseSchema, status_code=status.HTTP_201_CREATED
+)
 async def create_user(payload: UserPayloadSchema) -> UserResponseSchema:
     return await add_user(payload)
 
@@ -17,7 +19,7 @@ async def create_user(payload: UserPayloadSchema) -> UserResponseSchema:
 async def read_user(id: str) -> UserResponseSchema:
     job_offer = await get_user(id)
     if not job_offer:
-        raise HTTPException(status_code=404, detail="User not found")
+        raise HTTPException(status_code=404, detail=constant.USER_NOT_FOUND)
 
     return job_offer
 
@@ -29,9 +31,9 @@ async def read_all_users() -> List[UserResponseSchema]:
 
 @router.delete("/{id}/", response_model=UserResponseSchema)
 async def delete_user(id: str) -> UserResponseSchema:
-    job_offer = await get_users(id)
+    job_offer = await get_user(id)
     if not job_offer:
-        raise HTTPException(status_code=404, detail="User not found")
+        raise HTTPException(status_code=404, detail=constant.USER_NOT_FOUND)
 
     await remove_user(id)
 
@@ -42,6 +44,6 @@ async def delete_user(id: str) -> UserResponseSchema:
 async def update_user(id: str, payload: UserPayloadSchema) -> UserResponseSchema:
     job_offer = await edit_user(id, payload)
     if not job_offer:
-        raise HTTPException(status_code=404, detail="User not found")
+        raise HTTPException(status_code=404, detail=constant.USER_NOT_FOUND)
 
     return job_offer

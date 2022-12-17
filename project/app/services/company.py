@@ -1,29 +1,30 @@
 from typing import List, Union
-from app.models.jobs import User, UserSchema
-from app.schema.company import UserPayloadSchema
+
+from app.models.jobs import Company, CompanySchema
+from app.schema.company import CompanyPayloadSchema
 
 
-async def add_company(payload: UserPayloadSchema) -> UserSchema:
-    company = User(name=payload.name)
+async def add_company(payload: CompanyPayloadSchema) -> CompanySchema:
+    company = Company(name=payload.name)
     await company.save()
     return company
 
 
 async def get_company(id: str) -> Union[dict, None]:
-    return await User.filter(id=id).first().values() or None
+    return await Company.filter(id=id).first().values() or None
 
 
 async def get_companies() -> List:
-    return await User.all().values()
+    return await Company.all().values()
 
 
 async def remove_company(id: str) -> int:
-    return await User.filter(id=id).first().delete()
+    return await Company.filter(id=id).first().delete()
 
 
-async def edit_company(id: str, payload: UserPayloadSchema) -> Union[dict, None]:
-    company = await User.filter(id=id).update(name=payload.name)
+async def edit_company(id: str, payload: CompanyPayloadSchema) -> Union[dict, None]:
+    company = await Company.filter(id=id).update(name=payload.name)
     if company:
-        updated_company = await User.filter(id=id).first().values()
+        updated_company = await Company.filter(id=id).first().values()
         return updated_company
     return None

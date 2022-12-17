@@ -1,4 +1,5 @@
 from typing import List, Union
+
 from app.models.jobs import User, UserSchema
 from app.schema.user import UserPayloadSchema
 
