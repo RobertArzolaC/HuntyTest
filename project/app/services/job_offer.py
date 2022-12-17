@@ -40,3 +40,7 @@ async def edit_job_offer(id: str, payload: JobOfferPayloadSchema) -> Union[dict,
         updated_job_offer = await JobOffer.filter(id=id).first().values()
         return updated_job_offer
     return None
+
+
+async def get_job_offers_by_ids(job_offer_id_list) -> List:
+    return await JobOffer.filter(id__in=job_offer_id_list).values()

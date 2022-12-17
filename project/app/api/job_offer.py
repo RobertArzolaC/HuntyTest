@@ -7,10 +7,12 @@ from app.services.job_offer import (
     edit_job_offer,
     get_job_offer,
     get_job_offers,
+    get_job_offers_by_ids,
     remove_job_offer,
 )
+from app.services.job_offer_skill import get_job_offers_by_skills
 from app.services.user import get_user
-from app.services.user_skill import get_user_skill_user_id
+from app.services.user_skill import get_skills_by_user_id
 from fastapi import APIRouter, HTTPException, status
 
 router = APIRouter()
@@ -59,13 +61,13 @@ async def update_job_offer(
     return job_offer
 
 
-@router.get("/by_user/{user_id}", response_model=JobOfferResponseSchema)
+@router.get("/by_user/{user_id}", response_model=List[JobOfferResponseSchema])
 async def read_all_job_offers_by_user(user_id: str) -> List[JobOfferResponseSchema]:
     user = await get_user(user_id)
     if not user:
         raise HTTPException(status_code=404, detail=constant.USER_NOT_FOUND)
 
-    user_skills = await get_user_skill_user_id(user_id)
-    print("user_skills: ", user_skills)
+    skill_id_list = await get_skills_by_user_id(user_id)
+    job_offer_id_list = await get_job_offers_by_skills(skill_id_list)
 
-    return []
+    return await get_job_offers_by_ids(job_offer_id_list)

@@ -40,5 +40,5 @@ async def edit_user_skill(
     return None
 
 
-async def get_user_skill_user_id(user_id: str) -> Union[dict, None]:
-    return await UserSkill.filter(user_id=user_id).first().values() or None
+async def get_skills_by_user_id(user_id: str) -> List:
+    return await UserSkill.filter(user_id=user_id).values_list("skill_id", flat=True)

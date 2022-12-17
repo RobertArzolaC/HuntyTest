@@ -41,6 +41,13 @@ docker-compose up -d
 docker-compose exec web aerich upgrade
 ```
 
+#### 4. Cargar datos de prueba
+
+```
+docker-compose exec web-db bash
+psql -U postgres -d web_dev < /backup/huntydb_dump.sql
+```
+
 Visitar [http://localhost:8004/docs](http://localhost:8004/docs). Deberías ver la documentación de la api ;)
 
 
