@@ -1,15 +1,22 @@
 from typing import List
 
-from fastapi import APIRouter, HTTPException, status
-
 from app import constant
-from app.services.job_offer import add_job_offer, get_job_offer, get_job_offers, remove_job_offer, edit_job_offer
 from app.schema.job_offer import UserPayloadSchema, UserResponseSchema
+from app.services.job_offer import (
+    add_job_offer,
+    edit_job_offer,
+    get_job_offer,
+    get_job_offers,
+    remove_job_offer,
+)
+from fastapi import APIRouter, HTTPException, status
 
 router = APIRouter()
 
 
-@router.post("/", response_model=UserResponseSchema, status_code=status.HTTP_201_CREATED)
+@router.post(
+    "/", response_model=UserResponseSchema, status_code=status.HTTP_201_CREATED
+)
 async def create_job_offer(payload: UserPayloadSchema) -> UserResponseSchema:
     return await add_job_offer(payload)
 

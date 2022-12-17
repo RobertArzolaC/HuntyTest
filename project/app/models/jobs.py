@@ -29,9 +29,7 @@ class JobOffer(UUIDModel, AuditModel):
     currency = fields.CharField(max_length=15)
     salary = fields.IntField()
     url = fields.TextField()
-    company = fields.ForeignKeyField(
-        "models.Company", related_name="job_offers"
-    )
+    company = fields.ForeignKeyField("models.Company", related_name="job_offers")
 
     def __str__(self):
         return self.name
@@ -55,12 +53,8 @@ class Skill(UUIDModel, AuditModel):
 
 
 class UserSkill(UUIDModel, AuditModel):
-    user = fields.ForeignKeyField(
-        "models.User", related_name="skills"
-    )
-    skill = fields.ForeignKeyField(
-        "models.Skill", related_name="users"
-    )
+    user = fields.ForeignKeyField("models.User", related_name="skills")
+    skill = fields.ForeignKeyField("models.Skill", related_name="users")
     years_of_experience = fields.IntField()
 
     def __str__(self):
@@ -68,12 +62,8 @@ class UserSkill(UUIDModel, AuditModel):
 
 
 class JobOfferSkill(UUIDModel, AuditModel):
-    job_offer = fields.ForeignKeyField(
-        "models.JobOffer", related_name="skills"
-    )
-    skill = fields.ForeignKeyField(
-        "models.Skill", related_name="job_offers"
-    )
+    job_offer = fields.ForeignKeyField("models.JobOffer", related_name="skills")
+    skill = fields.ForeignKeyField("models.Skill", related_name="job_offers")
     years_of_experience = fields.IntField()
 
     def __str__(self):

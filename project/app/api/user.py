@@ -1,15 +1,16 @@
 from typing import List
 
-from fastapi import APIRouter, HTTPException, status
-
 from app import constant
-from app.services.user import add_user, edit_user, get_user, get_users, remove_user
 from app.schema.user import UserPayloadSchema, UserResponseSchema
+from app.services.user import add_user, edit_user, get_user, get_users, remove_user
+from fastapi import APIRouter, HTTPException, status
 
 router = APIRouter()
 
 
-@router.post("/", response_model=UserResponseSchema, status_code=status.HTTP_201_CREATED)
+@router.post(
+    "/", response_model=UserResponseSchema, status_code=status.HTTP_201_CREATED
+)
 async def create_user(payload: UserPayloadSchema) -> UserResponseSchema:
     return await add_user(payload)
 

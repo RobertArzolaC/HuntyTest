@@ -1,4 +1,5 @@
 from typing import List, Union
+
 from app.models.jobs import Skill, SkillSchema
 from app.schema.skill import SkillPayloadSchema
 

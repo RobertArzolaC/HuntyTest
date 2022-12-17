@@ -1,15 +1,22 @@
 from typing import List
 
-from fastapi import APIRouter, HTTPException, status
-
 from app import constant
-from app.services.company import add_company, get_company, get_companies, remove_company, edit_company
-from app.schema.company import UserPayloadSchema, CompanyResponseSchema
+from app.schema.company import CompanyResponseSchema, UserPayloadSchema
+from app.services.company import (
+    add_company,
+    edit_company,
+    get_companies,
+    get_company,
+    remove_company,
+)
+from fastapi import APIRouter, HTTPException, status
 
 router = APIRouter()
 
 
-@router.post("/", response_model=CompanyResponseSchema, status_code=status.HTTP_201_CREATED)
+@router.post(
+    "/", response_model=CompanyResponseSchema, status_code=status.HTTP_201_CREATED
+)
 async def create_company(payload: UserPayloadSchema) -> CompanyResponseSchema:
     return await add_company(payload)
 
