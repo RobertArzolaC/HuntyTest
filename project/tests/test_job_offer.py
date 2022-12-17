@@ -130,10 +130,10 @@ def test_update_job_offer_invalid_json(test_app_with_db):
 def test_update_job_offer_invalid_keys(test_app_with_db):
     __add_company(test_app_with_db)
     response = test_app_with_db.post(endpoint, data=json.dumps(payload))
-    summary_id = response.json()["id"]
+    job_offer_id = response.json()["id"]
 
     response = test_app_with_db.put(
-        f"{endpoint}{summary_id}/", data=json.dumps({"link": "https://foo.bar"})
+        f"{endpoint}{job_offer_id}/", data=json.dumps({"link": "https://foo.bar"})
     )
     response_dict = response.json()
 
