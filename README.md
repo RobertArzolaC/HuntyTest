@@ -45,6 +45,9 @@ docker-compose exec web aerich upgrade
 
 ```
 docker-compose exec web-db bash
+```
+
+```bash
 psql -U postgres -d web_dev < /backup/huntydb_dump.sql
 ```
 
@@ -64,6 +67,16 @@ docker-compose exec web python -m pytest
 ```
 docker-compose exec web python -m pytest --cov="."
 ```
+
+### Comentarios
+
+* Agregue una oferta de trabajo con 3 requisitos [aquí](http://localhost:8004/job_offers/).
+* Agregue 3 usuarios los cuales [aquí](http://localhost:8004/users/):
+    - El primero cumple con todos los requisitos.
+    - El segundo solo con 2.
+    - El tercero con ninguno.
+* Al realizar una consulta para obtener ofertas mediante cada usuario. Se mostrarán
+los resultados si el usuario cumple con los requisistos [aquí](http://localhost:8004/job_offers/by_user/<user_id>)
 
 
 ## Lenguaje usado
