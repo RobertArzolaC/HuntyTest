@@ -3,9 +3,9 @@ import uuid
 from pydantic import BaseModel
 
 
-class UserPayloadSchema(BaseModel):
+class CompanyPayloadSchema(BaseModel):
     name: str
 
 
-class CompanyResponseSchema(UserPayloadSchema):
+class CompanyResponseSchema(CompanyPayloadSchema):
     id: uuid.UUID

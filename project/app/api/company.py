@@ -1,7 +1,7 @@
 from typing import List
 
 from app import constant
-from app.schema.company import CompanyResponseSchema, UserPayloadSchema
+from app.schema.company import CompanyPayloadSchema, CompanyResponseSchema
 from app.services.company import (
     add_company,
     edit_company,
@@ -17,7 +17,7 @@ router = APIRouter()
 @router.post(
     "/", response_model=CompanyResponseSchema, status_code=status.HTTP_201_CREATED
 )
-async def create_company(payload: UserPayloadSchema) -> CompanyResponseSchema:
+async def create_company(payload: CompanyPayloadSchema) -> CompanyResponseSchema:
     return await add_company(payload)
 
 
@@ -47,7 +47,9 @@ async def delete_company(id: str) -> CompanyResponseSchema:
 
 
 @router.put("/{id}/", response_model=CompanyResponseSchema)
-async def update_company(id: str, payload: UserPayloadSchema) -> CompanyResponseSchema:
+async def update_company(
+    id: str, payload: CompanyPayloadSchema
+) -> CompanyResponseSchema:
     company = await edit_company(id, payload)
     if not company:
         raise HTTPException(status_code=404, detail=constant.COMPANY_NOT_FOUND)
