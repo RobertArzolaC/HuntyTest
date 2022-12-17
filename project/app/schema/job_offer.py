@@ -3,7 +3,7 @@ import uuid
 from pydantic import BaseModel
 
 
-class UserPayloadSchema(BaseModel):
+class JobOfferPayloadSchema(BaseModel):
     name: str
     currency: str
     salary: int
@@ -11,5 +11,5 @@ class UserPayloadSchema(BaseModel):
     company_id: uuid.UUID
 
 
-class UserResponseSchema(UserPayloadSchema):
+class JobOfferResponseSchema(JobOfferPayloadSchema):
     id: uuid.UUID

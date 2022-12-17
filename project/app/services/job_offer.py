@@ -1,10 +1,10 @@
 from typing import List, Union
 
 from app.models.jobs import JobOffer, JobOfferSchema
-from app.schema.job_offer import UserPayloadSchema
+from app.schema.job_offer import JobOfferPayloadSchema
 
 
-async def add_job_offer(payload: UserPayloadSchema) -> JobOfferSchema:
+async def add_job_offer(payload: JobOfferPayloadSchema) -> JobOfferSchema:
     job_offer = JobOffer(
         name=payload.name,
         currency=payload.currency,
@@ -28,7 +28,7 @@ async def remove_job_offer(id: str) -> int:
     return await JobOffer.filter(id=id).first().delete()
 
 
-async def edit_job_offer(id: str, payload: UserPayloadSchema) -> Union[dict, None]:
+async def edit_job_offer(id: str, payload: JobOfferPayloadSchema) -> Union[dict, None]:
     job_offer = await JobOffer.filter(id=id).update(
         name=payload.name,
         currency=payload.currency,

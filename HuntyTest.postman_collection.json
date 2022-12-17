@@ -1,0 +1,781 @@
+{
+	"info": {
+		"_postman_id": "5486222f-0916-4c8a-b290-f6e8542a5dfb",
+		"name": "HuntyTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User Skills",
+			"item": [
+				{
+					"name": "add_user_skill",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_id\": \"36677fc9-3702-4944-aca0-7228054cf6d6\",\n    \"skill_id\": \"b0417edc-785e-4595-8159-ca978953a864\",\n    \"years_of_experience\": 3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8004/user_skills/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8004",
+							"path": [
+								"user_skills",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_user_skill",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8004/user_skills/012f2f5a-0e91-40d8-ab30-684a796e3050",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8004",
+							"path": [
+								"user_skills",
+								"012f2f5a-0e91-40d8-ab30-684a796e3050"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_user_skills",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8004/user_skills/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8004",
+							"path": [
+								"user_skills",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update_user_skill",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"user_id\": \"36677fc9-3702-4944-aca0-7228054cf6d6\",\n        \"skill_id\": \"56886069-ceea-4286-971a-85c0e3d99406\",\n        \"years_of_experience\": 5\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8004/user_skills/00da123e-93d9-4f9d-9fe7-bda9d5ea6b13",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8004",
+							"path": [
+								"user_skills",
+								"00da123e-93d9-4f9d-9fe7-bda9d5ea6b13"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_user_skill",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8004/user_skills/502df027-657b-4510-b50e-9e429b5dedbf",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8004",
+							"path": [
+								"user_skills",
+								"502df027-657b-4510-b50e-9e429b5dedbf"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Companies",
+			"item": [
+				{
+					"name": "get_companies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8004/companies/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8004",
+							"path": [
+								"companies",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_company",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8004/companies/40fe45f4-8285-424f-aa1a-554a322e7ba0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8004",
+							"path": [
+								"companies",
+								"40fe45f4-8285-424f-aa1a-554a322e7ba0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_company",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create_company",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Google\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8004/companies/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8004",
+							"path": [
+								"companies",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update_company",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Crehana\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8004/companies/40fe45f4-8285-424f-aa1a-554a322e7ba0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8004",
+							"path": [
+								"companies",
+								"40fe45f4-8285-424f-aa1a-554a322e7ba0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_company",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8004/companies/40fe45f4-8285-424f-aa1a-554a322e7ba0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8004",
+							"path": [
+								"companies",
+								"40fe45f4-8285-424f-aa1a-554a322e7ba0"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Job Offer",
+			"item": [
+				{
+					"name": "create_job_offer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Python Developer\",\n  \"currency\": \"USD\",\n  \"salary\": 3000,\n  \"url\": \"https://findjob.com/jobid/1020/\",\n  \"company_id\": \"29967696-faa3-4bec-8ccf-ac7aa7eb21f5\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8004/job_offers/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8004",
+							"path": [
+								"job_offers",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_job_offer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8004/job_offers/c1c3ed34-3b0d-4820-9507-67ab88cee05b/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8004",
+							"path": [
+								"job_offers",
+								"c1c3ed34-3b0d-4820-9507-67ab88cee05b",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_job_offers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8004/job_offers/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8004",
+							"path": [
+								"job_offers",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update_job_offer",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Python Developer\",\n  \"currency\": \"USD\",\n  \"salary\": 5000,\n  \"url\": \"https://findjob.com/jobid/1020/\",\n  \"company_id\": \"29967696-faa3-4bec-8ccf-ac7aa7eb21f5\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8004/job_offers/c1c3ed34-3b0d-4820-9507-67ab88cee05b/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8004",
+							"path": [
+								"job_offers",
+								"c1c3ed34-3b0d-4820-9507-67ab88cee05b",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_job_offer",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8004/job_offers/c1c3ed34-3b0d-4820-9507-67ab88cee05b/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8004",
+							"path": [
+								"job_offers",
+								"c1c3ed34-3b0d-4820-9507-67ab88cee05b",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_all_job_offers_by_user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Skill",
+			"item": [
+				{
+					"name": "create_skill",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"AWS\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8004/skills/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8004",
+							"path": [
+								"skills",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_skill",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8004/skills/6dc08395-c211-4aa5-952d-f2d5389b9863",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8004",
+							"path": [
+								"skills",
+								"6dc08395-c211-4aa5-952d-f2d5389b9863"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_skills",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8004/skills/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8004",
+							"path": [
+								"skills",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update_skill",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Python\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8004/skills/09e7920c-bb2e-4ab0-b989-4f9cad3e3936",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8004",
+							"path": [
+								"skills",
+								"09e7920c-bb2e-4ab0-b989-4f9cad3e3936"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_skill",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8004/skills/09e7920c-bb2e-4ab0-b989-4f9cad3e3936",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8004",
+							"path": [
+								"skills",
+								"09e7920c-bb2e-4ab0-b989-4f9cad3e3936"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "add_user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"first_name\": \"Elon\",\n  \"last_name\": \"Musk\",\n  \"email\": \"elon@gmail.com\",\n  \"years_of_experience\": 6\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8004/users/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8004",
+							"path": [
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8004/users/457c417c-89e1-4b47-a62e-d7f6940aae72",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8004",
+							"path": [
+								"users",
+								"457c417c-89e1-4b47-a62e-d7f6940aae72"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8004/users/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8004",
+							"path": [
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update_user",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"first_name\": \"Mark\",\n  \"last_name\": \"Zuckerberg\",\n  \"email\": \"mark@gmail.com\",\n  \"years_of_experience\": 5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8004/users/457c417c-89e1-4b47-a62e-d7f6940aae72",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8004",
+							"path": [
+								"users",
+								"457c417c-89e1-4b47-a62e-d7f6940aae72"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_user",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8004/users/457c417c-89e1-4b47-a62e-d7f6940aae72",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8004",
+							"path": [
+								"users",
+								"457c417c-89e1-4b47-a62e-d7f6940aae72"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Job Offer Skills",
+			"item": [
+				{
+					"name": "add_job_offer_skill",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"job_offer_id\": \"eaa8eba6-5404-4875-af53-b69248bd5532\",\n  \"skill_id\": \"b0417edc-785e-4595-8159-ca978953a864\",\n  \"years_of_experience\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8004/job_offer_skills/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8004",
+							"path": [
+								"job_offer_skills",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_job_offer_skill",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8004/job_offer_skills/04ef95aa-1605-4582-b1ce-d73c288a3ce0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8004",
+							"path": [
+								"job_offer_skills",
+								"04ef95aa-1605-4582-b1ce-d73c288a3ce0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_job_offer_skills",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8004/job_offer_skills/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8004",
+							"path": [
+								"job_offer_skills",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update_job_offer_skill",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"job_offer_id\": \"eaa8eba6-5404-4875-af53-b69248bd5532\",\n  \"skill_id\": \"6dc08395-c211-4aa5-952d-f2d5389b9863\",\n  \"years_of_experience\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8004/job_offer_skills/04ef95aa-1605-4582-b1ce-d73c288a3ce0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8004",
+							"path": [
+								"job_offer_skills",
+								"04ef95aa-1605-4582-b1ce-d73c288a3ce0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_job_offer_skill",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8004/job_offer_skills/04ef95aa-1605-4582-b1ce-d73c288a3ce0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8004",
+							"path": [
+								"job_offer_skills",
+								"04ef95aa-1605-4582-b1ce-d73c288a3ce0"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
