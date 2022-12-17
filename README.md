@@ -76,7 +76,7 @@ docker-compose exec web python -m pytest --cov="."
     - El segundo solo con 2.
     - El tercero con ninguno.
 * Al realizar una consulta para obtener ofertas mediante cada usuario. Se mostrarán
-los resultados si el usuario cumple con los requisistos [aquí](http://localhost:8004/job_offers/by_user/<user_id>)
+los resultados si el usuario cumple con la cantidad de requisitos [aquí](http://localhost:8004/job_offers/by_user/<user_id>)
 
 
 ## Lenguaje usado
